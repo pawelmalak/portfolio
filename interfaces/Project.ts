@@ -1,4 +1,4 @@
-import { Statistics } from '.';
+import { Skill, Statistics } from '.';
 
 export interface Project {
   name: string;
@@ -9,7 +9,7 @@ export interface Project {
     demo?: string;
   };
   description: string;
-  techstack: string[];
+  techstack: Skill[];
   statistics: Statistics[];
 }
 

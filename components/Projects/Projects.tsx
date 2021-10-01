@@ -1,5 +1,6 @@
-import { ProjectCard } from '.';
-import { Project } from '../interfaces/Project';
+import { ProjectCard } from '..';
+import { Project } from '../../interfaces/Project';
+
 interface Props {
   projects: Project[];
 }

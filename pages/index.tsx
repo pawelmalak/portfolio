@@ -10,10 +10,11 @@ import type { NextPage, GetStaticProps } from 'next';
 import { Project } from '../interfaces/Project';
 
 // Components
-import { Header, Navbar, Projects } from '../components';
+import { Header, Projects } from '../components';
 import { Layout, Section } from '../components/UI';
 import { ProjectsFile } from '../interfaces';
 import { getData } from '../utils';
+import { Skills } from '../components/Skills/Skills';
 
 interface Props {
   projects: Project[];
@@ -27,6 +28,9 @@ const Home: NextPage<Props> = props => {
         <Header />
         <Section title='Projects'>
           <Projects projects={props.projects} />
+        </Section>
+        <Section title='Skills'>
+          <Skills />
         </Section>
       </Layout>
     </Fragment>

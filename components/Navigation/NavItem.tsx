@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Route } from '../interfaces';
+import { Route } from '../../interfaces';
 
 interface Props {
   route: Route;
