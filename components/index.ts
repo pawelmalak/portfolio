@@ -1,2 +1,5 @@
 export * from './Navbar';
-export * from './Header';
+export * from './NavItem';
+export * from './Header/Header';
+export * from './Projects';
+export * from './Project/ProjectCard';

@@ -9,7 +9,7 @@ export const Button = (props: Props): JSX.Element => {
   const { children, classes, ...rest } = props;
 
   const baseClasses =
-    'ring-1 ring-white px-5 py-1 rounded-sm hover:bg-white hover:text-blue-800 transition-all';
+    'ring-1 ring-white px-5 py-2 rounded-sm hover:bg-white hover:text-blue-800 transition-all';
   const elClasses = `${baseClasses} ${classes}`;
 
   return (
