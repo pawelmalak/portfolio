@@ -26,7 +26,7 @@ export const ProjectLink = (props: Props): JSX.Element => {
     );
   } else {
     return (
-      <a href={dest} target='_blank' className={classes}>
+      <a href={dest} target='_blank' rel='noreferrer' className={classes}>
         {icon}
         {text}
       </a>

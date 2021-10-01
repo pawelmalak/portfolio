@@ -4,16 +4,18 @@ interface Props {
   icon: string;
   size: number;
   color?: string;
+  styles?: string;
 }
 
 export const SimpleIcon = (props: Props): JSX.Element => {
-  const { icon, size, color } = props;
+  const { icon, size, color, styles } = props;
 
   // Find icon
   const { title, path, hex } = icons.Get(icon);
 
   return (
     <svg
+      className={styles}
       xmlns='http://www.w3.org/2000/svg'
       width={size}
       height={size}

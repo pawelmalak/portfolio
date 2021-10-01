@@ -22,9 +22,9 @@ export const ProjectCard = (props: Props): JSX.Element => {
         </div>
 
         {/* TECHSTACK */}
-        <div className='py-4 border-b border-t border-gray-300 flex justify-center'>
+        <div className='py-4 border-b border-t border-gray-300 flex justify-center flex-wrap'>
           {techstack.map(({ icon }, idx) => (
-            <span className='mr-2'>
+            <span className='mr-2' key={idx}>
               <SimpleIcon icon={icon} size={24} key={idx} />
             </span>
           ))}

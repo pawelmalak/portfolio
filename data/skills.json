@@ -1,0 +1,17 @@
+{
+  "languages": [
+    { "name": "Typescript", "icon": "typescript" },
+    { "name": "React", "icon": "react" },
+    { "name": "HTML", "icon": "html5" },
+    { "name": "CSS", "icon": "css3" },
+    { "name": "Bootstrap", "icon": "bootstrap" },
+    { "name": "Node.js", "icon": "nodedotjs" },
+    { "name": "Javascript", "icon": "javascript" },
+    { "name": "Express", "icon": "express" },
+    { "name": "Tailwind CSS", "icon": "tailwindcss" }
+  ],
+  "tools": [
+    { "name": "Git", "icon": "git" },
+    { "name": "GitHub", "icon": "github" }
+  ]
+}

@@ -11,7 +11,7 @@ export const ProjectStats = (props: Props): JSX.Element => {
   return (
     <Fragment>
       {statistics.map(({ name, value }, idx) => (
-        <div className='flex flex-col items-center' key={idx}>
+        <div className='flex flex-col items-center text-center' key={idx}>
           <span className='font-medium'>{name}</span>
           <span className='text-gray-500'>{value}</span>
         </div>

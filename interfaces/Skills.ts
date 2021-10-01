@@ -5,6 +5,5 @@ export interface Skill {
 
 export interface SkillsFile {
   languages: Skill[];
-  reactEcosystem: Skill[];
   tools: Skill[];
 }
