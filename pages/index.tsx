@@ -1,78 +1,51 @@
-// Node
-import fs from 'fs/promises';
-import { join } from 'path';
-
 // React & Next
 import { Fragment } from 'react';
 import type { NextPage, GetStaticProps } from 'next';
 
 // Typescript
-import { Project } from '../interfaces/Project';
+import { ProjectStats } from '../interfaces/Project';
 
 // Components
-import { Header, Projects } from '../components';
-import { Layout, Section } from '../components/UI';
-import { ProjectsFile } from '../interfaces';
-import { getData } from '../utils';
+import { HomeHeader, Projects } from '../components';
+import { Section } from '../components/UI';
+import { ProjectsFile, Statistics } from '../interfaces';
+import { getData, readJSON } from '../utils';
 import { Skills } from '../components/Skills/Skills';
 
 interface Props {
-  projects: Project[];
+  projects: ProjectStats[];
 }
 
-const Home: NextPage<Props> = props => {
+const HomePage: NextPage<Props> = props => {
   return (
     <Fragment>
-      <Layout>
-        {/* <Navbar /> */}
-        <Header />
-        <Section title='Projects'>
-          <Projects projects={props.projects} />
-        </Section>
-        <Section title='Skills'>
-          <Skills />
-        </Section>
-      </Layout>
+      {/* <Navbar /> */}
+      <HomeHeader />
+      <Section title='Projects'>
+        <Projects projects={props.projects} />
+      </Section>
+      <Section title='Skills'>
+        <Skills />
+      </Section>
     </Fragment>
   );
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const projectsFile = await fs.readFile('./data/projects.json', 'utf-8');
-  const { projects } = JSON.parse(projectsFile) as ProjectsFile;
-  const populatedProjects: Project[] = [];
+  const { projects } = await readJSON<ProjectsFile>('data/projects.json');
+  const populatedProjects: ProjectStats[] = [];
 
   for await (const project of projects) {
-    const { stargazers_count: githubStars } = await getData<{
-      stargazers_count: number;
-    }>(`https://api.github.com/repos/pawelmalak/${project.slug}`);
+    const fetchDocker =
+      project.links.dockerhub !== undefined ? '?docker=1' : '';
 
-    const { pull_count: dockerPulls } = await getData<{ pull_count: number }>(
-      `https://hub.docker.com/v2/repositories/pawelmalak/${project.slug}`
-    );
-
-    const { total_count: closedIssues } = await getData<{
-      total_count: number;
-    }>(
-      `https://api.github.com/search/issues?q=repo:pawelmalak/${project.slug}+type:issue+state:closed`
+    const statistics = await getData<Statistics[]>(
+      `http://localhost:3000/api/projects/statistics/${project.id}${fetchDocker}`
     );
 
     populatedProjects.push({
       ...project,
-      statistics: [
-        {
-          name: 'Github Stars',
-          value: githubStars
-        },
-        {
-          name: 'Docker Pulls',
-          value: dockerPulls
-        },
-        {
-          name: 'Closed Issues',
-          value: closedIssues
-        }
-      ]
+      statistics
     });
   }
 
@@ -83,4 +56,4 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   };
 };
 
-export default Home;
+export default HomePage;

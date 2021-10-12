@@ -1,6 +1,7 @@
 import { Skill, Statistics } from '.';
 
 export interface Project {
+  id: number;
   name: string;
   slug: string;
   links: {
@@ -10,9 +11,13 @@ export interface Project {
   };
   description: string;
   techstack: Skill[];
-  statistics: Statistics[];
+  showStatistics: boolean;
 }
 
 export interface ProjectsFile {
   projects: Project[];
+}
+
+export interface ProjectStats extends Project {
+  statistics: Statistics[];
 }
