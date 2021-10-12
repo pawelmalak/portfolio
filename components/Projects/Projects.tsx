@@ -1,8 +1,8 @@
 import { ProjectCard } from '..';
-import { Project } from '../../interfaces/Project';
+import { ProjectStats } from '../../interfaces/Project';
 
 interface Props {
-  projects: Project[];
+  projects: ProjectStats[];
 }
 
 export const Projects = (props: Props): JSX.Element => {

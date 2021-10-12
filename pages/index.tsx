@@ -9,7 +9,7 @@ import { ProjectStats } from '../interfaces/Project';
 import { HomeHeader, Projects } from '../components';
 import { Section } from '../components/UI';
 import { ProjectsFile, Statistics } from '../interfaces';
-import { getData, readJSON } from '../utils';
+import { getData, getProjectStatistics, readJSON } from '../utils';
 import { Skills } from '../components/Skills/Skills';
 
 interface Props {
@@ -36,12 +36,10 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const populatedProjects: ProjectStats[] = [];
 
   for await (const project of projects) {
-    const fetchDocker =
-      project.links.dockerhub !== undefined ? '?docker=1' : '';
+    const fetchDocker = project.links.dockerhub !== undefined ? true : false;
 
-    const statistics = await getData<Statistics[]>(
-      `http://localhost:3000/api/projects/statistics/${project.id}${fetchDocker}`
-    );
+    const statistics =
+      (await getProjectStatistics(project.id, fetchDocker)) || [];
 
     populatedProjects.push({
       ...project,

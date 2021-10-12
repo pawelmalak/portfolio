@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { ParsedUrlQuery } from 'querystring';
-import { ProjectsFile, ProjectStats, Statistics } from '../../interfaces';
-import { getData, readJSON } from '../../utils';
+import { ProjectsFile, ProjectStats } from '../../interfaces';
+import { getProjectStatistics, readJSON } from '../../utils';
 import {
   ProjectFeatures,
   ProjectHeader,
@@ -63,10 +63,7 @@ export const getStaticProps: GetStaticProps<Props> = async context => {
 
   const { projects } = await readJSON<ProjectsFile>('data/projects.json');
   const project = projects.find(project => project.id === parseInt(id));
-
-  const statistics = await getData<Statistics[]>(
-    `http://localhost:3000/api/projects/statistics/${id}?docker=1`
-  );
+  const statistics = (await getProjectStatistics(parseInt(id), true)) || [];
 
   if (project) {
     return {
