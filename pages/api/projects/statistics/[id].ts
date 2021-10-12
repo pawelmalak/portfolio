@@ -16,16 +16,24 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   } else {
     const statistics: Statistics[] = [];
 
-    // fetch github stars
-    const { stargazers_count: githubStars } = await getData<{
+    // fetch github stars and forks
+    const { stargazers_count: githubStars, forks } = await getData<{
       stargazers_count: number;
+      forks: number;
     }>(`https://api.github.com/repos/pawelmalak/${project.slug}`);
 
-    statistics.push({
-      name: 'Github Stars',
-      value: githubStars,
-      isDetailed: false
-    });
+    statistics.push(
+      {
+        name: 'Github Stars',
+        value: githubStars,
+        isDetailed: false
+      },
+      {
+        name: 'Github Forks',
+        value: forks,
+        isDetailed: true
+      }
+    );
 
     if (req.query.docker && req.query.docker === '1') {
       // fetch docker hub stats
