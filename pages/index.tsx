@@ -6,11 +6,11 @@ import type { NextPage, GetStaticProps } from 'next';
 import { ProjectStats } from '../interfaces/Project';
 
 // Components
-import { HomeHeader, Projects } from '../components';
+import { HomeHeader, Projects, Skills } from '../components';
 import { Section } from '../components/UI';
-import { ProjectsFile, Statistics } from '../interfaces';
-import { getData, getProjectStatistics, readJSON } from '../utils';
-import { Skills } from '../components/Skills/Skills';
+
+// Utils
+import { getPopulatedProjects } from '../utils';
 
 interface Props {
   projects: ProjectStats[];
@@ -32,24 +32,11 @@ const HomePage: NextPage<Props> = props => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const { projects } = await readJSON<ProjectsFile>('data/projects.json');
-  const populatedProjects: ProjectStats[] = [];
-
-  for await (const project of projects) {
-    const fetchDocker = project.links.dockerhub !== undefined ? true : false;
-
-    const statistics =
-      (await getProjectStatistics(project.id, fetchDocker)) || [];
-
-    populatedProjects.push({
-      ...project,
-      statistics
-    });
-  }
+  const projects = await getPopulatedProjects();
 
   return {
     props: {
-      projects: populatedProjects
+      projects
     }
   };
 };

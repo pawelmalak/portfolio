@@ -1,29 +1,18 @@
 import * as SolidIcons from '@heroicons/react/solid';
 import * as OutlineIcons from '@heroicons/react/outline';
 
+export type IconName = keyof typeof SolidIcons | keyof typeof OutlineIcons;
+
 interface Props {
-  icon: string;
-  color?: string;
-  size?: number;
+  icon: IconName;
+  className?: string;
   outline?: boolean;
 }
 
 export const HeroIcon = (props: Props): JSX.Element => {
-  const { icon, color, size, outline = false } = props;
+  const { icon, className = 'w-6 h-6 text-gray-600', outline = false } = props;
 
-  const { ...icons } = outline ? OutlineIcons : SolidIcons;
+  const Icon = outline ? OutlineIcons[icon] : SolidIcons[icon];
 
-  // @ts-ignore
-  const Icon: JSX.Element = icons[icon];
-
-  const classes = [
-    `${color ? color : 'text-black'}`,
-    `h-${size ? size : 6}`,
-    `w-${size ? size : 6}`
-  ];
-
-  return (
-    // @ts-ignore
-    <Icon className={classes.join(' ')} />
-  );
+  return <Icon className={className} />;
 };
