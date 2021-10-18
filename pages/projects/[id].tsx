@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { ParsedUrlQuery } from 'querystring';
-import { ProjectsFile, ProjectStats } from '../../interfaces';
-import { getProjectStatistics, readJSON } from '../../utils';
+import { ProjectStats } from '../../interfaces';
+import { getPopulatedProjects } from '../../utils';
 import {
   ProjectFeatures,
   ProjectHeader,
@@ -59,24 +59,22 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async context => {
+  const projects = await getPopulatedProjects();
   const { id } = context.params as Params;
 
-  const { projects } = await readJSON<ProjectsFile>('data/projects.json');
   const project = projects.find(project => project.id === parseInt(id));
-  const statistics = (await getProjectStatistics(parseInt(id), true)) || [];
 
   if (project) {
     return {
       props: {
-        project: {
-          ...project,
-          statistics
-        }
-      }
+        project
+      },
+      revalidate: 1800
     };
   } else {
     return {
-      notFound: true
+      notFound: true,
+      revalidate: 1800
     };
   }
 };

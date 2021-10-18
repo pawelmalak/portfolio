@@ -2,12 +2,22 @@ import { getData, readJSON } from '.';
 import { ProjectsFile, Statistics } from '../interfaces';
 
 export const getProjectStatistics = async (
-  id: number,
+  projectId: number,
   fetchDocker: boolean
 ): Promise<Statistics[] | null> => {
   // get projects and look for given id
   const { projects } = await readJSON<ProjectsFile>('data/projects.json');
-  const project = projects.find(p => p.id === id);
+  const project = projects.find(project => project.id === projectId);
+
+  if (process.env.NODE_ENV === 'development') {
+    return [
+      {
+        name: 'DEV STAT',
+        value: 0,
+        isDetailed: false
+      }
+    ];
+  }
 
   if (!project) {
     return null;

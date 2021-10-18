@@ -19,7 +19,6 @@ interface Props {
 const HomePage: NextPage<Props> = props => {
   return (
     <Fragment>
-      {/* <Navbar /> */}
       <HomeHeader />
       <Section title='Projects'>
         <Projects projects={props.projects} />

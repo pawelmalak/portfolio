@@ -1,17 +1,22 @@
 {
   "languages": [
     { "name": "Typescript", "icon": "typescript" },
-    { "name": "React", "icon": "react" },
-    { "name": "HTML", "icon": "html5" },
-    { "name": "CSS", "icon": "css3" },
-    { "name": "Bootstrap", "icon": "bootstrap" },
-    { "name": "Node.js", "icon": "nodedotjs" },
     { "name": "Javascript", "icon": "javascript" },
+    { "name": "Node.js", "icon": "nodedotjs" },
+    { "name": "React", "icon": "react" },
+    { "name": "Redux", "icon": "redux" },
+    { "name": "Next.js", "icon": "nextdotjs" },
+    { "name": "SQL", "icon": "sequelize" },
     { "name": "Express", "icon": "express" },
-    { "name": "Tailwind CSS", "icon": "tailwindcss" }
+    { "name": "Tailwind CSS", "icon": "tailwindcss" },
+    { "name": "Bootstrap", "icon": "bootstrap" },
+    { "name": "HTML", "icon": "html5" },
+    { "name": "CSS", "icon": "css3" }
   ],
   "tools": [
     { "name": "Git", "icon": "git" },
-    { "name": "GitHub", "icon": "github" }
+    { "name": "GitHub", "icon": "github" },
+    { "name": "Docker", "icon": "docker" },
+    { "name": "Bash", "icon": "gnubash" }
   ]
 }
