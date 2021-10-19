@@ -25,7 +25,7 @@ export const HomeHeader = (): JSX.Element => {
             GitHub Profile
           </a>
         </Button>
-        <Button classes='mb-0 sm:mb-4'>Download CV</Button>
+        {/* <Button classes='mb-0 sm:mb-4'>Download CV</Button> */}
       </div>
     </Header>
   );
