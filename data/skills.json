@@ -16,6 +16,7 @@
   "tools": [
     { "name": "Git", "icon": "git" },
     { "name": "GitHub", "icon": "github" },
+    { "name": "Postman", "icon": "postman" },
     { "name": "Docker", "icon": "docker" },
     { "name": "Bash", "icon": "gnubash" }
   ]

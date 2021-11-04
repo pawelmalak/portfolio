@@ -1,6 +1,6 @@
-FROM node:14-alpine
+FROM node:14-alpine as builder
 
-WORKDIR /app
+WORKDIR /app_build
 
 COPY package*.json ./
 
@@ -9,6 +9,12 @@ RUN npm install
 COPY . .
 
 RUN npm run build && npm prune --production
+
+FROM node:14-alpine
+
+WORKDIR /app
+
+COPY --from=builder /app_build /app
 
 EXPOSE 3000
 

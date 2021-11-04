@@ -1,0 +1,167 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "name": "Flame",
+      "slug": "flame",
+      "links": {
+        "github": "https://github.com/pawelmalak/flame",
+        "dockerhub": "https://hub.docker.com/r/pawelmalak/flame",
+        "demo": "https://github.com/pawelmalak/flame"
+      },
+      "description": "Flame is self-hosted startpage for your server with main purpose to help you manage apps and bookmarks. With built-in editors it allows you to setup your very own appliaction hub in no time - no file editing necessary.",
+      "techstack": [
+        { "name": "Typescript", "icon": "typescript" },
+        { "name": "React", "icon": "react" },
+        { "name": "Redux", "icon": "redux" },
+        { "name": "CSS", "icon": "css3" },
+        { "name": "Javascript", "icon": "javascript" },
+        { "name": "Node.js", "icon": "nodedotjs" },
+        { "name": "Express", "icon": "express" },
+        { "name": "Sequelize", "icon": "sequelize" },
+        { "name": "Docker", "icon": "docker" }
+      ],
+      "features": [
+        {
+          "name": "REST API",
+          "icon": "CubeTransparentIcon",
+          "description": "Easy resource management"
+        },
+        {
+          "name": "GUI Editors",
+          "icon": "CursorClickIcon",
+          "description": "No file editing necessary"
+        },
+        {
+          "name": "Theming",
+          "icon": "ColorSwatchIcon",
+          "description": "Built-in 12 color themes"
+        },
+        {
+          "name": "Customization",
+          "icon": "CogIcon",
+          "description": "Over 20 customizable settings"
+        },
+        {
+          "name": "Weather API",
+          "icon": "SunIcon",
+          "description": "External weather API proxy"
+        },
+        {
+          "name": "Notifications",
+          "icon": "BellIcon",
+          "description": "Integrated notification system"
+        },
+        {
+          "name": "Searching",
+          "icon": "SearchIcon",
+          "description": "Built-in searching and filtering"
+        },
+        {
+          "name": "File upload",
+          "icon": "UploadIcon",
+          "description": "Upload custom icons"
+        },
+        {
+          "name": "Database migrations",
+          "icon": "DatabaseIcon",
+          "description": "Migrations and backups"
+        }
+      ],
+      "showStatistics": true
+    },
+    {
+      "id": 2,
+      "name": "Snippet Box",
+      "slug": "snippet-box",
+      "links": {
+        "github": "https://github.com/pawelmalak/snippet-box",
+        "dockerhub": "https://hub.docker.com/r/pawelmalak/snippet-box",
+        "demo": "https://github.com/pawelmalak/snippet-box"
+      },
+      "description": "Snippet Box is a simple self-hosted app for organizing your code snippets. It allows you to easily create, edit, browse and manage your snippets in various languages.",
+      "techstack": [
+        { "name": "Typescript", "icon": "typescript" },
+        { "name": "React", "icon": "react" },
+        { "name": "Bootstrap", "icon": "bootstrap" },
+        { "name": "Node.js", "icon": "nodedotjs" },
+        { "name": "Express", "icon": "express" },
+        { "name": "Sequelize", "icon": "sequelize" },
+        { "name": "Docker", "icon": "docker" }
+      ],
+      "features": [
+        {
+          "name": "REST API",
+          "icon": "CubeTransparentIcon",
+          "description": "Easy resource management"
+        },
+        {
+          "name": "Tags",
+          "icon": "TagIcon",
+          "description": "Tag and organize your code"
+        },
+        {
+          "name": "Syntax highlighting",
+          "icon": "CodeIcon",
+          "description": "Supports 160+ languages"
+        },
+        {
+          "name": "Searching",
+          "icon": "SearchIcon",
+          "description": "Search feature with filters"
+        },
+        {
+          "name": "Markdown support",
+          "icon": "DocumentTextIcon",
+          "description": "Create snippet documentation"
+        },
+        {
+          "name": "Raw snippets",
+          "icon": "LinkIcon",
+          "description": "Get your code from anywhere"
+        },
+        {
+          "name": "Dark mode",
+          "icon": "MoonIcon",
+          "description": "Easier on the eyes"
+        },
+        {
+          "name": "Database migrations",
+          "icon": "DatabaseIcon",
+          "description": "Migrations and backups"
+        }
+      ],
+      "showStatistics": true
+    },
+    {
+      "id": 3,
+      "name": "Personal Portfolio",
+      "slug": "snippet-box",
+      "links": {
+        "github": "https://github.com/pawelmalak/portfolio",
+        "demo": "https://github.com/pawelmalak/portfolio"
+      },
+      "description": "Personal Portfolio website you are browsing right now. Built with Next.js and Tailwind CSS. Containerized with Docker and hosted on Unraid server.",
+      "techstack": [
+        { "name": "Typescript", "icon": "typescript" },
+        { "name": "Next.js", "icon": "nextdotjs" },
+        { "name": "React", "icon": "react" },
+        { "name": "Tailwind CSS", "icon": "tailwindcss" },
+        { "name": "Docker", "icon": "docker" }
+      ],
+      "features": [
+        {
+          "name": "Static Site Generation",
+          "icon": "ServerIcon",
+          "description": "Powered by Next.js"
+        },
+        {
+          "name": "External API",
+          "icon": "ArrowsExpandIcon",
+          "description": "Project statistics API"
+        }
+      ],
+      "showStatistics": false
+    }
+  ]
+}

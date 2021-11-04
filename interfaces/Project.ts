@@ -1,6 +1,5 @@
 import { Skill, Statistics } from '.';
 import { Feature } from './Feature';
-import { Photo } from './Photo';
 
 export interface Project {
   id: number;
@@ -14,7 +13,6 @@ export interface Project {
   description: string;
   techstack: Skill[];
   features: Feature[];
-  screenshots: Photo[];
   showStatistics: boolean;
 }
 
